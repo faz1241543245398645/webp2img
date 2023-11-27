@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Processor</title>
+</head>
+<body>
+    <input type="url" id="inputUrl">
+    <button onclick="processUrl()">Process URL</button>
+    <p id="output"></p>
+
+    <script>
+        function processUrl() {
+            const inputElement = document.getElementById('inputUrl');
+            const url = inputElement.value;
+
+            // Processing logic
+            let decodedLink = decodeURIComponent(url);
+            let modifiedLink = decodedLink.replace('preview', 'i');
+            modifiedLink = modifiedLink.split(/\.jpg|\.png/)[0] + '.jpg';
+
+            const outputElement = document.getElementById('output');
+            outputElement.textContent = modifiedLink;
+        }
+    </script>
+</body>
+</html>
